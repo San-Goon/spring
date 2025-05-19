@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  database:
+    container_name: jpashop_maria_db
+    image: mariadb:latest
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+      - ./db-volume:/var/lib/mysql
+    env_file: db/.env
+    ports:
+      - "13310:3306"
+    restart: always
+    networks:
+      - jpashop_network
+
+networks:
+  jpashop_network:
