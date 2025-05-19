@@ -11,3 +11,19 @@ spring:
       initialize-schema: always
   application:
     name: jpashop
+  jpa:
+    open-in-view: true
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        highlight_sql: false
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+
+logging.level:
+  org.hibernate.SQL: debug
+# org.hibernate.type: trace #???? 2?
